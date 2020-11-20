@@ -7,7 +7,7 @@ function App() {
     <main>
       <div className="container">
         <form>
-          <div className="form-group">
+          <div className="form-group first">
             <div className="flex-container">
               <div className="flex-item heading">Step 1: Your details</div>
               <div className="flex-item top">
@@ -58,7 +58,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="form-group">
+          <div className="form-group third">
             <div className="flex-container">
               <div className="flex-item heading">Step 3: Final Comments</div>
               <div className="flex-item top">
