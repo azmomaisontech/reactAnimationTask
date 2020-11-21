@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import Form from "./component/layout/Form";
 import validateInput from "./utils/validateInput";
+import convertDate from "./utils/convertDate";
+import submitToServer from "./utils/submitToServer";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
@@ -48,15 +50,36 @@ function App() {
     setUser({ ...user, [target.name]: target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     error = validateInput(user);
     if (error.length > 0) {
       toast.error(error);
       return;
     }
-    console.log("Submitted");
-    console.log(user);
+
+    //Coverting DOB to format acceptable by server
+    const formattedUser = {
+      ...user,
+      dob: convertDate(dob),
+    };
+
+    const res = await submitToServer(formattedUser);
+
+    if (res.status === 201) {
+      toast.success("Successful request");
+      setUser({
+        firstname: "",
+        surname: "",
+        email: "",
+        number: "",
+        gender: "",
+        dob: "",
+        comments: "",
+      });
+    } else {
+      toast.error("Request failed, try again later");
+    }
   };
 
   return (

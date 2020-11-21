@@ -29,7 +29,7 @@ const SecondForm = (props) => {
           <InputGroup
             handleChange={handleChange}
             labelFor="dob"
-            labelText="Date of Birth: dd/mm/yyyy"
+            labelText="Date of Birth: *dd/mm/yyyy"
             inputType="text"
             value={dob}
           />
