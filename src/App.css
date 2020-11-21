@@ -1,7 +1,7 @@
 :root {
   --main-background-color: #deeff5;
   --form-background-color: #e3e4e4;
-  --primary-color: #ffad5b;
+  --primary-color: #ffa64c;
   --secondary-color: #524a7d;
   --white: #fff;
   --border-radius: 10px;
@@ -33,12 +33,22 @@ form {
   border-radius: var(--border-radius);
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .heading {
   background: var(--primary-color);
   color: var(--white);
   font-weight: 500;
   padding: 1rem;
   border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.heading:hover {
+  opacity: 0.6;
 }
 
 .input-group {
@@ -82,23 +92,22 @@ textarea {
   border-radius: var(--border-radius);
 }
 
+.btn:hover {
+  opacity: 0.6;
+}
+
 .fas {
   font-size: 0.7rem;
   margin-left: 0.2rem;
 }
 
-.flex-container {
+.top {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .bottom {
   align-self: flex-end;
-}
-
-.top {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .top,
@@ -110,11 +119,6 @@ textarea {
   margin: 0.28rem 0;
 }
 
-.first .top,
-.first .bottom,
-.second .top,
-.second .bottom,
-.third .top,
-.third .bottom {
+.hidden {
   display: none;
 }
