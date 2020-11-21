@@ -22,6 +22,10 @@ main {
   width: 600px;
 }
 
+.danger {
+  border: 1px solid red;
+}
+
 form {
   background: var(--white);
   border-radius: var(--border-radius);

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import Form from "./component/layout/Form";
 import validateInput from "./utils/validateInput";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 function App() {
+  let error;
   const [first, setFirst] = useState(true);
   const [second, setSecond] = useState(false);
   const [third, setThird] = useState(false);
@@ -47,9 +50,9 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const error = validateInput(user);
+    error = validateInput(user);
     if (error.length > 0) {
-      console.log(error);
+      toast.error(error);
       return;
     }
     console.log("Submitted");
@@ -59,6 +62,7 @@ function App() {
   return (
     <main>
       <div className="container">
+        <ToastContainer position="top-right" />
         <Form
           handleSubmit={handleSubmit}
           handleFirstFocus={handleFirstFocus}

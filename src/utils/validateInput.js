@@ -19,9 +19,16 @@ function validateInput(user) {
   }
 
   // eslint-disable-next-line
+  const dobRegex = /^(0?[1-9]|[12]\d|30|31)[^\w\d\r\n:](0?[1-9]|1[0-2])[^\w\d\r\n:](\d{4}|\d{2})$/;
+  const dobLength = dob.trim().length;
+  if (!dobRegex.test(String(dob).toLowerCase()) || dobLength === 0) {
+    error.push("Date must be in dd/mm/yyyy format");
+  }
+
+  // eslint-disable-next-line
   const phoneRegex = /^07\d{9}$/;
   const phoneLength = number.trim().length;
-  if (!phoneRegex.test(String(email).toLowerCase()) || phoneLength === 0) {
+  if (!phoneRegex.test(String(number).toLowerCase()) || phoneLength === 0) {
     error.push("Enter a valid UK Mobile Phone Number");
   }
 
@@ -32,7 +39,7 @@ function validateInput(user) {
     error.push("Enter a valid email address");
   }
 
-  return error;
+  return error.toString();
 }
 
 export default validateInput;
