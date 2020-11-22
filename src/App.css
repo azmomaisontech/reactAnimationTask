@@ -1,11 +1,12 @@
 :root {
-  --main-background-color: #deeff5;
+  --main-background-color: #e5e5ff;
   --form-background-color: #e3e4e4;
-  --primary-color: #ffa64c;
-  --secondary-color: #524a7d;
+  --primary-color: #ffb732;
+  --secondary-color: #635c8a;
   --white: #fff;
   --border-radius: 10px;
   --box-shadow: #000000;
+  --form-shadow: #b9b6cb;
 }
 
 main {
@@ -30,6 +31,7 @@ form {
   background: var(--white);
   border-radius: var(--border-radius);
   padding: 0.28rem;
+  box-shadow: 2px 2px 15px var(--form-shadow), -2px -2px 15px var(--form-shadow);
 }
 
 .form-group {
@@ -83,7 +85,7 @@ textarea {
 
 .btn {
   display: inline-block;
-  padding: 0.5rem 2.8rem;
+  padding: 0.5rem 2.5rem;
   margin-left: 0.5rem;
   border: none;
   cursor: pointer;
